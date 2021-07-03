@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Skills</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        * {
+            box-sizing: border-box
+        }
+        
+        .container {
+            width: 100%;
+            background-color: #ddd;
+        }
+        
+        .skills {
+            text-align: right;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            color: white;
+        }
+        
+        .html {
+            width: 90%;
+            background-color: #04AA6D;
+        }
+        
+        .css {
+            width: 80%;
+            background-color: #2196F3;
+        }
+        
+        .js {
+            width: 65%;
+            background-color: #f44336;
+        }
+        
+        .php {
+            width: 80%;
+            background-color: #808080;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topnav" id="mytopnav">
+        <a href="../html/index.html">Home</a>
+        <a class="active" href="../html/skills1.html">Skills</a>
+        <a href="../html/contact.html">Contact</a>
+        <a href="../html/edu.html">Education</a>
+        <a href="../html/about.html">About</a>
+    </div>
+
+    <div>
+        <h1>My Skills</h1>
+
+        <p>
+            <h1>HTML</h1>
+        </p>
+        <div class="container">
+            <div class="skills html">90%</div>
+        </div>
+
+        <p>
+            <h1>CSS</h1>
+        </p>
+        <div class="container">
+            <div class="skills css">80%</div>
+        </div>
+
+        <p>
+            <h1>JavaScript</h1>
+        </p>
+        <div class="container">
+            <div class="skills js">65%</div>
+        </div>
+
+        <p>
+            <h1>C Programming</h1>
+        </p>
+        <div class="container">
+            <div class="skills php">80%</div>
+
+        </div>
+
+
+        <div>
+            <h1>Rate my Skills</h1>
+        </div>
+        <div class="formm">
+            <div style="border: 4px solid black; padding-bottom: 1cm;">
+                <label for="fname"><h1 style="color: brown;">Name</h1></label><br>
+                <input type="text" id="fname" name="fname" placeholder="Who's rating my Skill?"><br>
+                <h2 style="color: brown;">Pick one skill to rate:</h2><br>
+                <label for="skeel">Choose a Skill to Rate:</label>
+                <select id="skeel" name="skeel">
+                  <option value="No Skill Selected">----Select----</option>
+                  <option value="HTML">HTML</option>
+                  <option value="CSS">CSS</option>
+                  <option value="JavaScript">JavaScript</option>
+                  <option value="C">C</option>
+                  
+                </select><br>
+                <label for="rating">Choose 5 star rating:</label>
+                <select id="rating" name="rating">
+                  <option value="Not Rated">----Select----</option>
+                  <option value="*">*</option>
+                  <option value="**">**</option>
+                  <option value="***">***</option>
+                  <option value="****">****</option>
+                  <option value="*****">*****</option>
+                </select><br>
+
+                <button class="button button1" onclick="getData();">Submit</button>
+            </div>
+
+
+
+            <div>
+                <h1 style="color: brown;">Previous Ratings</h1>
+                <table id="myTable">
+                    <tr>
+                        <td>Name</td>
+                        <td>Skill Rated</td>
+                        <td>Rating</td>
+                    </tr>
+                    <tr>
+                        <td>Rakesh</td>
+                        <td>C</td>
+                        <td>****</td>
+                    </tr>
+
+                </table>
+                <br>
+            </div>
+        </div>
+        <p style="color: aliceblue;">
+            Welcome to My Portfolio! These terms and conditions outline the rules and regulations for the use of IIIT's Website. By accessing this website we assume you accept these terms and conditions. Do not continue to use Website Name if you do not agree to
+            take all of the terms and conditions stated on this page. The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: “Client”, “You” and “Your” refers to you, the person log
+            on this website and compliant to the Company's terms and conditions. “The Company”, “Ourselves”, “We”, “Our” and “Us”, refers to our Company. “Party”, “Parties”, or “Us”, refers to both the Client and ourselves. All terms refer to the offer,
+            acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner for the express purpose of meeting the Client's needs in respect of provision of the Company's stated
+            services, in accordance with and subject to, prevailing law of Netherlands. Any use of the above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as interchangeable and therefore as referring
+            to same.<br> Copyright - Abhinav Anand.
+        </p>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+            <![endif]-->
+
+        <script>
+            var arr = ["Vikas Verma", "Rahul Ranjan"];
+            var dict = ["HTML", "CSS"];
+            var rarr = ["****", "***"];
+            var count = 2;
+
+            function getData() {
+                var name = document.getElementById("fname").value;
+                var skill = document.getElementById("skeel").value;
+                var rate = document.getElementById("rating").value;
+                arr.push(name);
+                dict.push(skill);
+                rarr.push(rate);
+                myFunction(name, skill, rate);
+            }
+
+            function myFunction(n, s, r) {
+                var table = document.getElementById("myTable");
+
+                for (let i = count; i < arr.length; i++) {
+
+                    var row = table.insertRow(1);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    var cell3 = row.insertCell(2);
+                    cell1.innerHTML = arr[i];
+                    cell2.innerHTML = dict[i];
+                    cell3.innerHTML = rarr[i];
+                    count += 1;
+                }
+            }
+        </script>
+</body>
+
+</html>
